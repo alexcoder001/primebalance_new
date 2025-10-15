@@ -1,0 +1,9 @@
+$custom-text-opacity: (
+    65: 0.65,
+);
+
+@each $name, $opacity in $custom-text-opacity {
+    .text-white-#{$name} {
+        color: rgba(255, 255, 255, $opacity) !important;
+    }
+}
