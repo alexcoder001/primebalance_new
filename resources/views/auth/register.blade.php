@@ -8,27 +8,42 @@
             <div class="form-floating mb-3">
                 <input name="first_name" type="text" class="form-control text-black" id="floatingInput" placeholder="First Name">
                 <label for="floatingInput">First Name</label>
+                @error('first_name')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="form-floating mb-3">
                 <input name="last_name" type="text" class="form-control text-black" id="floatingInput" placeholder="Last Name">
                 <label for="floatingInput">Last Name</label>
+                @error('last_name')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="form-floating mb-3">
                 <input name="email" type="email" class="form-control text-black" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
+                @error('email')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="form-floating mb-3">
                 <input name="password" type="password" class="form-control text-black" id="floatingPassword"
                        placeholder="Password">
                 <label for="floatingPassword">Password</label>
+                @error('password')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="form-floating mb-3">
                 <input name="password_confirmation" type="password" class="form-control text-black" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password Confirmation</label>
+                @error('password_confirmation')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
 
             <button class="btn btn-primary w-100 py-2 mb-2" type="submit">Register</button>

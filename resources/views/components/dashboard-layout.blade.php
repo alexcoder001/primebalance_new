@@ -15,9 +15,39 @@
   Licensed under the Apache License 2.0
   https://www.apache.org/licenses/LICENSE-2.0
 -->
-<div class="d-flex">
-    <div id="sidebar" class="sidebar d-flex flex-column px-3 py-4 vh-100">
-        <div class="sidebar-header mb-4 d-flex justify-content-between">
+<div class="d-flex overflow-y-hidden">
+    <button class="menu" id="burger" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+        <svg width="40" height="40" viewBox="0 0 100 100">
+            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+            <path class="line line2" d="M 20,50 H 80" />
+            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+        </svg>
+    </button>
+
+    <nav class="d-none col-12" id="nav-mobile">
+        <div class="d-flex align-items-center vh-100 p-4">
+            <ul class="nav nav-pills flex-column w-100">
+                <li class="nav-item">
+                    <x-nav-link  href="/dashboard" :active="request()->is('dashboard')">
+                        <span class="fs-4">Dashboard</span>
+                    </x-nav-link>
+                </li>
+                <li class="nav-item">
+                    <x-nav-link href="/transactions" :active="request()->is('transactions')">
+                        <span class="fs-4">Transactions</span>
+                    </x-nav-link>
+                </li>
+                <li class="nav-item">
+                    <x-nav-link href="/goals" :active="request()->is('goals')">
+                        <span class="fs-4">Goals</span>
+                    </x-nav-link>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="sidebar" class="sidebar d-none d-md-flex flex-column px-3 py-4 vh-100">
+        <div class="sidebar-header px-2 mb-4 d-flex justify-content-between">
             <p id="logo" class="mb-0 text-primary h5">PB</p>
 
             <button id="toggleSidebar" class="p-0 d-block btn btn-link">
@@ -87,6 +117,14 @@
 <script>
     const sidebar = document.querySelector('#sidebar');
     const toggle = document.querySelector('#toggleSidebar');
+    const burgerBtn = document.querySelector('#burger');
+    const menu = document.querySelector('#nav-mobile');
+    const body = document.body;
+
+    burgerBtn.addEventListener('click', () => {
+        menu.classList.toggle('d-none');
+        body.classList.toggle('menu-open');
+    })
 
     if (localStorage.getItem('sidebar-expanded') === 'true') {
         sidebar.classList.add('expanded');

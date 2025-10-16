@@ -9,7 +9,7 @@
                 <input name="email" type="email" value="{{ old('email') }}" @class(["form-control text-black", 'is-invalid' => $errors->hasAny('email')]) id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
                 @error('email')
-                <p class="text-red">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -18,7 +18,7 @@
                        placeholder="Password">
                 <label for="floatingPassword">Password</label>
                 @error('password')
-                <p class="text-red">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
 
