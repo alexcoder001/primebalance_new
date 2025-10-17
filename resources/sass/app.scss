@@ -1,118 +1,68 @@
+/* --------------------------------------------------------------
+   Imports
+-------------------------------------------------------------- */
 @import "../../node_modules/bootstrap/scss/functions";
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "custom";
 
-/* space-grotesk-regular - latin */
+/* --------------------------------------------------------------
+   Fonts
+-------------------------------------------------------------- */
+
+/* Space Grotesk */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Space Grotesk';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
 }
 
-/* space-grotesk-600 - latin */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Space Grotesk';
     font-style: normal;
     font-weight: 600;
-    src: url('../fonts/space-grotesk-v22-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/space-grotesk-v22-latin-600.woff2') format('woff2');
 }
 
-/* playfair-display-regular - latin */
+/* Playfair Display */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/playfair-display-v39-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/playfair-display-v39-latin-regular.woff2') format('woff2');
 }
 
-/* playfair-display-500 - latin */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 500;
-    src: url('../fonts/playfair-display-v39-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/playfair-display-v39-latin-500.woff2') format('woff2');
 }
 
-/* playfair-display-500italic - latin */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Playfair Display';
     font-style: italic;
     font-weight: 500;
-    src: url('../fonts/playfair-display-v39-latin-500italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/playfair-display-v39-latin-500italic.woff2') format('woff2');
 }
 
 
-.menu {
-    position: fixed;
-    background-color: transparent;
-    border: none;
-    top: 1rem;
-    right: 1rem;
-    cursor: pointer;
-    display: flex;
-    padding: 0;
-    z-index: 1;
-}
-
-.line {
-    fill: none;
-    stroke: $white;
-    stroke-width: 6;
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.line1 {
-    stroke-dasharray: 60 207;
-    stroke-width: 6;
-}
-
-.line2 {
-    stroke-dasharray: 60 60;
-    stroke-width: 6;
-}
-
-.line3 {
-    stroke-dasharray: 60 207;
-    stroke-width: 6;
-}
-
-.opened .line1 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-    stroke-width: 6;
-}
-
-.opened .line2 {
-    stroke-dasharray: 1 60;
-    stroke-dashoffset: -30;
-    stroke-width: 6;
-}
-
-.opened .line3 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-    stroke-width: 6;
-}
-
+/* --------------------------------------------------------------
+   Layout & Global
+-------------------------------------------------------------- */
 body.menu-open {
     overflow: hidden;
     position: fixed;
     width: 100%;
 }
 
-
-.layout {
-    font-family: 'Space Grotesk', sans-serif;
-}
-
+.layout,
 .dashboard {
     font-family: 'Space Grotesk', sans-serif;
 }
@@ -128,92 +78,93 @@ body.menu-open {
 
 .dashboard {
     background: url("../../public/images/background.svg") no-repeat center center fixed;
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
 }
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.07);
-    color: $white;
-}
 
-.card {
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 1px; // thickness of border
-        background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0.3),
-                rgba(255, 255, 255, 0.05)
-        );
-        -webkit-mask: linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        pointer-events: none;
-    }
-}
-
-.card .list-group-item {
-    background: none;
+/* --------------------------------------------------------------
+   Navigation & Menu Button
+-------------------------------------------------------------- */
+.btn-menu {
+    position: fixed;
+    background: rgba($white, .1);
+    border-radius: 8px;
+    top: 1rem;
+    right: 1rem;
     border: none;
+    display: flex;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
 }
 
-.action {
-    display: block;
-    color: rgba(240, 241, 240, 0.6);;
-    border-radius: .25rem;
-    background: rgba(255, 255, 255, 0.05);
-    text-align: center;
-    padding: 1.5rem 2rem;
-    text-decoration: none;
-    transition: all .2s ease-in-out;
-
-    &:hover {
-        color: $white;
-        background-color: rgba(255, 255, 255, 0.1);
-    }
+.line {
+    fill: none;
+    stroke: $white;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.main-content {
-    margin-left: 80px;
-    transition: margin-left 0.3s ease-in-out;
-    overflow-y: auto;
+.line1,
+.line2,
+.line3 {
+    stroke-width: 6;
 }
 
-.sidebar.expanded ~ .main-content {
-    margin-left: 260px;
+.line1,
+.line3 {
+    stroke-dasharray: 60 207;
 }
 
+.line2 {
+    stroke-dasharray: 60 60;
+}
+
+/* Opened state */
+.opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+}
+
+.opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+}
+
+.opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+}
+
+
+/* --------------------------------------------------------------
+   Sidebar
+-------------------------------------------------------------- */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 80px; /* collapsed width */
-    box-shadow: 2px 0px 5px 2px rgba($black, .1);
+    width: 70px;
     background-color: rgba($white, .1);
-    overflow: hidden;
+    box-shadow: 2px 0px 5px 2px rgba($black, .1);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     transition: all 0.3s ease-in-out;
     z-index: 1000;
 }
 
-/* Expanded state */
+/* Expanded */
 .sidebar.expanded {
     width: 260px;
 }
 
-/* Header area */
+/* Header */
 .sidebar .sidebar-header {
     display: flex;
     align-items: center;
@@ -232,12 +183,11 @@ body.menu-open {
     transition: all 0.3s ease-in-out;
 }
 
-/* Toggle button */
 .sidebar.expanded #toggleSidebar {
     margin: 0;
 }
 
-/* Nav links */
+/* Nav Links */
 .sidebar .nav-link {
     display: flex;
     align-items: center;
@@ -254,7 +204,7 @@ body.menu-open {
     gap: .75rem;
 }
 
-/* Text and logo hidden by default */
+/* Text & Logo visibility */
 .sidebar #logo,
 .sidebar .nav-link span,
 .sidebar .nav-link small {
@@ -264,7 +214,6 @@ body.menu-open {
     transition: all 0.2s ease-in-out;
 }
 
-/* Show text smoothly when expanded */
 .sidebar.expanded #logo,
 .sidebar.expanded .nav-link span,
 .sidebar.expanded .nav-link small {
@@ -273,21 +222,35 @@ body.menu-open {
     width: auto;
 }
 
-/* Hover effect */
+/* Hover effects */
 .sidebar .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 8px;
 }
 
-/* Footer area */
+/* Footer */
 .sidebar .mt-auto {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding-top: 0.5rem;
 }
 
-/* Prevent layout shift from invisible elements */
+/* Prevent layout shift */
 .sidebar .nav-link svg {
     flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------
+   Main Content
+-------------------------------------------------------------- */
+.main-content {
+    margin-left: 70px;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar.expanded ~ .main-content {
+    margin-left: 260px;
 }
 
 @media (max-width: 768px) {
@@ -296,11 +259,42 @@ body.menu-open {
     }
 }
 
+
+/* --------------------------------------------------------------
+   Cards & Tables
+-------------------------------------------------------------- */
+.card {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.05));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+}
+
+.card .list-group-item {
+    background: none;
+    border: none;
+}
+
 .custom-table {
     position: relative;
     overflow: hidden;
 
-    &.custom-table th, td {
+    &.custom-table th,
+    &.custom-table td {
         border-color: rgba(255, 255, 255, 0.3);
     }
 
@@ -309,17 +303,40 @@ body.menu-open {
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        padding: 1px; // thickness of border
-        background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0.3),
-                rgba(255, 255, 255, 0.05)
-        );
+        padding: 1px;
+        background: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.05));
         -webkit-mask: linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
         pointer-events: none;
+    }
+}
+
+
+/* --------------------------------------------------------------
+   Elements & Utilities
+-------------------------------------------------------------- */
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: $white;
+}
+
+.action {
+    display: block;
+    color: rgba(240, 241, 240, 0.6);
+    border-radius: .25rem;
+    background: rgba(255, 255, 255, 0.05);
+    text-align: center;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        color: $white;
+        background-color: rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -334,5 +351,5 @@ body.menu-open {
 }
 
 .modal {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }

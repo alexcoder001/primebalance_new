@@ -85,12 +85,12 @@
 
                     <div class="bg-dark-green rounded-1 p-3 text-center">
                         <div class="row g-3">
-                            <div class="col">
+                            <div class="col-12 col-sm-6">
                                 <button type="button" class="btn w-100 action" data-bs-toggle="modal" data-bs-target="#actionModal" data-type="expense">
                                     New Transaction
                                 </button>
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-sm-6">
                                 <button type="button" class="btn w-100 action" data-bs-toggle="modal" data-bs-target="#goalModal" data-type="goal">
                                     New Goal
                                 </button>

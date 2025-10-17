@@ -1,28 +1,32 @@
 <x-dashboard-layout>
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 pt-4 mb-4">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2 class="text-white mb-1">Transactions</h2>
+        <div class="col-12 col-md-11 pt-4 mb-4">
+            <div class="row d-md-flex justify-content-between align-items-center">
+                <div class="col-12 col-md-3 d-md-block">
+                    <h2 class="text-white mb-1 mb-3 mb-md-0">Transactions</h2>
+                </div>
 
-                <div>
-                    <form action="{{ route('transactions.index') }}" method="GET">
+                <div class="col-12 col-md-3">
+                    <form class="mb-3 mb-md-0" action="{{ route('transactions.index') }}" method="GET">
                         <input class="form-control search-input" name="search" placeholder="Type to search">
                     </form>
                 </div>
 
-                <div class="btn-group" role="group">
-                    <a href="{{ route('transactions.index', ['filter' => 'all']) }}"
-                       class="btn btn-outline-white {{ request('filter') === 'all' ? 'active' : '' }}">
-                        All
-                    </a>
-                    <a href="{{ route('transactions.index', ['filter' => 'incomes']) }}"
-                       class="btn btn-outline-white {{ request('filter') === 'incomes' ? 'active' : '' }}">
-                        Incomes
-                    </a>
-                    <a href="{{ route('transactions.index', ['filter' => 'expenses']) }}"
-                       class="btn btn-outline-white {{ request('filter') === 'expenses' ? 'active' : '' }}">
-                        Expenses
-                    </a>
+                <div class="col-12 col-md-5">
+                    <div class="btn-group" role="group">
+                        <a href="{{ route('transactions.index', ['filter' => 'all']) }}"
+                           class="btn btn-outline-white {{ request('filter') === 'all' ? 'active' : '' }}">
+                            All
+                        </a>
+                        <a href="{{ route('transactions.index', ['filter' => 'incomes']) }}"
+                           class="btn btn-outline-white {{ request('filter') === 'incomes' ? 'active' : '' }}">
+                            Incomes
+                        </a>
+                        <a href="{{ route('transactions.index', ['filter' => 'expenses']) }}"
+                           class="btn btn-outline-white {{ request('filter') === 'expenses' ? 'active' : '' }}">
+                            Expenses
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,7 +34,7 @@
 
     @if (session('success'))
         <div id="alert" class="row justify-content-center">
-            <div class="col-12 col-lg-10 pt-4 mb-3">
+            <div class="col-12 col-lg-11 pt-4 mb-3">
                 <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -40,8 +44,34 @@
     @endif
 
     <div id="transactions-list">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
+        <div class="row d-md-none">
+            <div class="col-12">
+                <div class="card h-100 rounded-3">
+                    <div class="card-body p-2">
+                        <p class="fs-5 text-white text-start mt-2 mb-3 ms-3">Recent Transactions</p>
+                        <div @class(['d-none' => $transactions->isEmpty(), 'd-flex bg-dark-green rounded-1 p-2'])>
+                            <ul class="list-group w-100">
+                                @foreach($transactions as $transaction)
+                                    <li @class(['list-group-item d-flex justify-content-between border-white border-opacity-25',
+                                'border-bottom' => !$loop->last])>
+                                        <p class="text-white mb-0">{{ $transaction->description }}</p>
+                                        <p @class([
+                                            'mb-0',
+                                             'text-danger' => $transaction->amount < 0,
+                                             'text-primary' => $transaction->amount > 0,
+                                           ])>
+                                            ${{ number_format(abs($transaction->amount), 2) }}</p>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center d-none d-md-flex">
+            <div class="col-12 col-md-11">
                 <table class="table custom-table rounded-3 caption-top">
                     <thead>
                     <tr>
@@ -76,7 +106,7 @@
                     </tbody>
                 </table>
 
-{{--                            {{ $transactions->links() }}--}}
+                {{--                            {{ $transactions->links() }}--}}
 
             </div>
         </div>

@@ -25,7 +25,7 @@ class TransactionController extends Controller
         $query = $this->user->transactions();
 
         if($request->has('search')) {
-            $query->where('description', 'LIKE', request('search') . '%');
+            $query->whereRaw('LOWER(description) LIKE ?', [strtolower(request('search')) . '%']);
         }
 
         if ($filter === 'incomes') {
