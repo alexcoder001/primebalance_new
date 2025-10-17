@@ -14,6 +14,6 @@ export default defineConfig({
         outDir: 'public/build',
         emptyOutDir: true,
     },
-    assetsInclude: ['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot'], // ensures fonts are treated as assets
+    assetsInclude: ['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot'],
     base: process.env.ASSET_URL ? process.env.ASSET_URL + '/' : '/',
 });

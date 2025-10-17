@@ -57,16 +57,15 @@
             <div class="card h-100 rounded-3">
                 <div class="card-body p-2">
                     <p class="fs-5 text-white text-start mt-2 mb-3 ms-3">Goals</p>
-                    <div @class(['d-none' => $goals->isEmpty(), 'd-flex bg-dark-green rounded-1 p-2'])>
-
+                    <div @class(['d-none' => $goals->isEmpty(), 'd-flex bg-dark-green rounded-1 px-2'])>
                         <ul class="list-group w-100">
                             @foreach($goals as $goal)
-                                <li @class(['list-group-item d-flex justify-content-between border-white border-opacity-25',
+                                <li @class(['list-group-item d-flex justify-content-between py-3 border-white border-opacity-25',
                                 'border-bottom' => !$loop->last])>
                                     <p class="text-white mb-0">{{ $goal->description }}</p>
                                     <p @class(['mb-0', 'text-white' => abs($goal->transactions_sum_amount) != $goal->amount, 'text-primary' => abs($goal->transactions_sum_amount) >= $goal->amount])>${{ number_format($goal->amount, 2) }}</p>
                                     @if(abs($goal->transactions_sum_amount) >= $goal->amount)
-                                        <p class="text-white">Done</p>
+                                        <p class="text-white m-0">Done</p>
                                     @endif
                                 </li>
                             @endforeach
