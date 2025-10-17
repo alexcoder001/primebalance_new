@@ -51,25 +51,25 @@
             <p id="logo" class="mb-0 text-primary h5">PB</p>
 
             <button id="toggleSidebar" class="p-0 d-block btn btn-link">
-                <img src="{{ asset('/images/dock-close.img') }}" width="20" height="20" aria-hidden="true" alt="close dock icon">
+                <img src="{{ asset('/images/dock-close.svg') }}" width="20" height="20" aria-hidden="true" alt="close dock icon">
             </button>
         </div>
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
                 <x-nav-link href="/dashboard" :active="request()->is('dashboard')">
-                    <img src="@if(request()->is('dashboard')) {{ asset('/images/dashboard-filled.img') }} @else {{ asset('/images/dashboard.img') }} @endif" width="20" height="20" aria-hidden="true" alt="dashboard icon">
+                    <img src="@if(request()->is('dashboard')) {{ asset('/images/dashboard-filled.svg') }} @else {{ asset('/images/dashboard.svg') }} @endif" width="20" height="20" aria-hidden="true" alt="dashboard icon">
                     <span>Dashboard</span>
                 </x-nav-link>
             </li>
             <li class="nav-item">
                 <x-nav-link href="/transactions" :active="request()->is('transactions')">
-                    <img src="{{ asset('/images/transactions.img') }}" width="20" height="20" aria-hidden="true" alt="transactions icon">
+                    <img src="{{ asset('/images/transactions.svg') }}" width="20" height="20" aria-hidden="true" alt="transactions icon">
                     <span>Transactions</span>
                 </x-nav-link>
             </li>
             <li class="nav-item">
                 <x-nav-link href="/goals" :active="request()->is('goals')">
-                    <img src="@if(request()->is('goals')) {{ asset('/images/goals-filled.img') }} @else {{ asset('/images/goals.img') }} @endif" width="20" height="20" aria-hidden="true" alt="goals icon">
+                    <img src="@if(request()->is('goals')) {{ asset('/images/goals-filled.svg') }} @else {{ asset('/images/goals.svg') }} @endif" width="20" height="20" aria-hidden="true" alt="goals icon">
                     <span>Goals</span>
                 </x-nav-link>
             </li>
@@ -77,7 +77,7 @@
 
         <div class="mt-auto">
             <a href="#" class="nav-link btn text-white py-2" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ asset('/images/user.img') }}" width="20" height="20" aria-hidden="true" alt="user icon">
+                <img src="{{ asset('/images/user.svg') }}" width="20" height="20" aria-hidden="true" alt="user icon">
                 <small>{{ $user->first_name . ' ' . $user->last_name }}</small>
             </a>
             <ul class="dropdown-menu text-sm shadow">
@@ -86,7 +86,7 @@
                         @csrf
                         @method('DELETE')
                         <button class="btn me-2 mb-2 w-100">
-                            <img src="{{ asset('/images/logout.img') }}" class="me-1" width="20" height="20" aria-hidden="true" alt="log out icon">
+                            <img src="{{ asset('/images/logout.svg') }}" class="me-1" width="20" height="20" aria-hidden="true" alt="log out icon">
                             Log Out
                         </button>
                     </form>
