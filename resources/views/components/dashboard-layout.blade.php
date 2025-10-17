@@ -9,7 +9,7 @@
     <title>PrimeBalance Dashboard</title>
     @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 </head>
-<body class="dashboard">
+<body id="app" class="dashboard">
 <!--
   Material Icons by Google
   Licensed under the Apache License 2.0
