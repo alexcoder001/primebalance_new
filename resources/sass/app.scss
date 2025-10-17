@@ -16,7 +16,7 @@
     font-family: 'Space Grotesk';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
+    src: url('/resources/fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -24,7 +24,7 @@
     font-family: 'Space Grotesk';
     font-style: normal;
     font-weight: 600;
-    src: url('../fonts/space-grotesk-v22-latin-600.woff2') format('woff2');
+    src: url('/resources/fonts/space-grotesk-v22-latin-600.woff2') format('woff2');
 }
 
 /* Playfair Display */
@@ -33,7 +33,7 @@
     font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/playfair-display-v39-latin-regular.woff2') format('woff2');
+    src: url('/resources/fonts/playfair-display-v39-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -41,7 +41,7 @@
     font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 500;
-    src: url('../fonts/playfair-display-v39-latin-500.woff2') format('woff2');
+    src: url('/resources/fonts/playfair-display-v39-latin-500.woff2') format('woff2');
 }
 
 @font-face {
@@ -49,7 +49,7 @@
     font-family: 'Playfair Display';
     font-style: italic;
     font-weight: 500;
-    src: url('../fonts/playfair-display-v39-latin-500italic.woff2') format('woff2');
+    src: url('/resources/fonts/playfair-display-v39-latin-500italic.woff2') format('woff2');
 }
 
 

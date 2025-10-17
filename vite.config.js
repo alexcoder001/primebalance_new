@@ -11,8 +11,9 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'public/build', // Laravel default
-        emptyOutDir: true,      // optional: clean old builds
+        outDir: 'public/build',
+        emptyOutDir: true,
     },
+    assetsInclude: ['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot'], // ensures fonts are treated as assets
     base: process.env.ASSET_URL ? process.env.ASSET_URL + '/' : '/',
 });
