@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10 pt-4 mb-4">
-            <h2 class="text-white mb-1">Goals</h2>
+            <h2 class="text-white mb-1 fw-normal">Goals</h2>
         </div>
     </div>
 

@@ -98,7 +98,7 @@
     </div>
 
     <div class="main-content flex-grow-1">
-        <div id="app" class="container-fluid py-4">
+        <div id="app" class="container-fluid container-xl py-4">
             {{ $slot }}
         </div>
     </div>

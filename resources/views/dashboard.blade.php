@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10 col-xl-11 pt-4 mb-3">
-            <h2 class="text-white mb-1">Hello, {{ $user->first_name }}</h2>
+            <h2 class="text-white mb-1 fw-normal">Hello, {{ $user->first_name }}</h2>
             <p class="text-white-65">{{ substr(now()->toFormattedDayDateString(), 0, -6) }}</p>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 <div class="card-body p-2">
                     <p class="fs-5 text-white text-start mt-2 mb-3 ms-3">Balance</p>
                     <div class="d-flex bg-dark-green rounded-1 p-3 align-items-start">
-                        <p class="text-primary h3 mb-0">${{ number_format($balance, 2) }}</p>
+                        <p class="text-primary fw-normal h3 mb-0">${{ number_format($balance, 2) }}</p>
                     </div>
                 </div>
             </div>

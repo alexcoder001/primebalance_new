@@ -3,7 +3,7 @@
         <div class="col-12 col-md-11 pt-4 mb-4">
             <div class="row d-md-flex justify-content-between align-items-center">
                 <div class="col-12 col-md-3 d-md-block">
-                    <h2 class="text-white mb-1 mb-3 mb-md-0">Transactions</h2>
+                    <h2 class="text-white fw-normal mb-1 mb-3 mb-md-0">Transactions</h2>
                 </div>
 
                 <div class="col-12 col-md-3">
