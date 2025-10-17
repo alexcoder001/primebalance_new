@@ -254,7 +254,7 @@ body.menu-open {
 }
 
 @media (max-width: 768px) {
-    .main-content {
+    .sidebar.expanded ~ .main-content {
         margin-left: 0;
     }
 }
