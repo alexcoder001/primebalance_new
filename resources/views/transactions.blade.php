@@ -48,20 +48,21 @@
             <div class="col-12">
                 <div class="card h-100 rounded-3">
                     <div class="card-body p-2">
-                        <p class="fs-5 text-white text-start mt-2 mb-3 ms-3">Recent Transactions</p>
-                        <div @class(['d-none' => $transactions->isEmpty(), 'd-flex bg-dark-green rounded-1 p-2'])>
+                        <div @class(['d-none' => $transactions->isEmpty(), 'd-flex bg-dark-green rounded-1 px-2'])>
                             <ul class="list-group w-100">
                                 @foreach($transactions as $transaction)
-                                    <li @class(['list-group-item d-flex justify-content-between border-white border-opacity-25',
+                                    <a href="" class="text-decoration-none">
+                                        <li @class(['list-group-item d-flex justify-content-between py-4 border-white border-opacity-25',
                                 'border-bottom' => !$loop->last])>
-                                        <p class="text-white mb-0">{{ $transaction->description }}</p>
-                                        <p @class([
+                                            <p class="text-white mb-0">{{ $transaction->description }}</p>
+                                            <p @class([
                                             'mb-0',
                                              'text-danger' => $transaction->amount < 0,
                                              'text-primary' => $transaction->amount > 0,
                                            ])>
-                                            ${{ number_format(abs($transaction->amount), 2) }}</p>
-                                    </li>
+                                                ${{ number_format(abs($transaction->amount), 2) }}</p>
+                                        </li>
+                                    </a>
                                 @endforeach
                             </ul>
                         </div>
