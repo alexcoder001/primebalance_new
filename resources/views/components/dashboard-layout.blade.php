@@ -9,7 +9,7 @@
     <title>PrimeBalance Dashboard</title>
     @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 </head>
-<body id="app" class="dashboard">
+<body class="dashboard">
 <!--
   Material Icons by Google
   Licensed under the Apache License 2.0
@@ -97,7 +97,7 @@
         </div>
     </div>
 
-    <div class="main-content flex-grow-1">
+    <div id="app" class="main-content flex-grow-1">
         <div class="container-fluid py-4">
             {{ $slot }}
         </div>
@@ -105,11 +105,15 @@
 </div>
 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('app').classList.add('loaded');
+    })
+
+    const body = document.body;
     const sidebar = document.querySelector('#sidebar');
     const toggle = document.querySelector('#toggleSidebar');
     const burgerBtn = document.querySelector('#burger');
     const menu = document.querySelector('#nav-mobile');
-    const body = document.body;
 
     burgerBtn.addEventListener('click', () => {
         menu.classList.toggle('d-none');
@@ -124,17 +128,6 @@
         sidebar.classList.toggle('expanded');
         localStorage.setItem('sidebar-expanded', sidebar.classList.contains('expanded'));
     });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('app').classList.add('loaded');
-
-        const sidebar = document.querySelector('#sidebar');
-        const toggleBtn = document.querySelector('#toggleSidebar');
-
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('expanded');
-        })
-    })
 </script>
 
 @stack('scripts')
