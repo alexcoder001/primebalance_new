@@ -17,18 +17,18 @@
 -->
 <div class="d-flex overflow-y-hidden">
     <button class="btn-menu d-md-none" id="burger" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
-        <svg width="40" height="40" viewBox="0 0 100 100">
-            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-            <path class="line line2" d="M 20,50 H 80" />
-            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-        </svg>
+        <img width="40" height="40" viewBox="0 0 100 100">
+        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/>
+        <path class="line line2" d="M 20,50 H 80"/>
+        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"/>
+        </img>
     </button>
 
     <nav class="d-none col-12" id="nav-mobile">
         <div class="d-flex align-items-center vh-100 p-4">
             <ul class="nav nav-pills flex-column w-100">
                 <li class="nav-item">
-                    <x-nav-link  href="/dashboard" :active="request()->is('dashboard')">
+                    <x-nav-link href="/dashboard" :active="request()->is('dashboard')">
                         <span class="fs-4">Dashboard</span>
                     </x-nav-link>
                 </li>
@@ -51,33 +51,25 @@
             <p id="logo" class="mb-0 text-primary h5">PB</p>
 
             <button id="toggleSidebar" class="p-0 d-block btn btn-link">
-                <svg width="20" height="20" aria-hidden="true">
-                    <use href="{{ asset('/images/dock-close.svg') }}"></use>
-                </svg>
+                <img src="{{ asset('/images/dock-close.img') }}" width="20" height="20" aria-hidden="true" alt="close dock icon">
             </button>
         </div>
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
                 <x-nav-link href="/dashboard" :active="request()->is('dashboard')">
-                    <svg width="20" height="20" aria-hidden="true">
-                        <use href="@if(request()->is('dashboard')) {{ asset('/images/dashboard-filled.svg') }} @else {{ asset('/images/dashboard.svg') }} @endif"></use>
-                    </svg>
+                    <img src="@if(request()->is('dashboard')) {{ asset('/images/dashboard-filled.img') }} @else {{ asset('/images/dashboard.img') }} @endif" width="20" height="20" aria-hidden="true" alt="dashboard icon">
                     <span>Dashboard</span>
                 </x-nav-link>
             </li>
             <li class="nav-item">
                 <x-nav-link href="/transactions" :active="request()->is('transactions')">
-                    <svg width="20" height="20" aria-hidden="true">
-                        <use href={{ asset('/images/transactions.svg') }}></use>
-                    </svg>
+                    <img src="{{ asset('/images/transactions.img') }}" width="20" height="20" aria-hidden="true" alt="transactions icon">
                     <span>Transactions</span>
                 </x-nav-link>
             </li>
             <li class="nav-item">
                 <x-nav-link href="/goals" :active="request()->is('goals')">
-                    <svg width="20" height="20" aria-hidden="true">
-                        <use href="@if(request()->is('goals')) {{ asset('/images/goals-filled.svg') }} @else {{ asset('/images/goals.svg') }} @endif"></use>
-                    </svg>
+                    <img src="@if(request()->is('goals')) {{ asset('/images/goals-filled.img') }} @else {{ asset('/images/goals.img') }} @endif" width="20" height="20" aria-hidden="true" alt="goals icon">
                     <span>Goals</span>
                 </x-nav-link>
             </li>
@@ -85,9 +77,7 @@
 
         <div class="mt-auto">
             <a href="#" class="nav-link btn text-white py-2" data-bs-toggle="dropdown" aria-expanded="false">
-                <svg width="20" height="20" aria-hidden="true">
-                    <use href={{ asset('/images/user.svg') }}></use>
-                </svg>
+                <img src="{{ asset('/images/user.img') }}" width="20" height="20" aria-hidden="true" alt="user icon">
                 <small>{{ $user->first_name . ' ' . $user->last_name }}</small>
             </a>
             <ul class="dropdown-menu text-sm shadow">
@@ -96,9 +86,7 @@
                         @csrf
                         @method('DELETE')
                         <button class="btn me-2 mb-2 w-100">
-                            <svg class="me-1" width="20" height="20" aria-hidden="true">
-                                <use href={{ asset('/images/logout.svg') }}></use>
-                            </svg>
+                            <img src="{{ asset('/images/logout.img') }}" class="me-1" width="20" height="20" aria-hidden="true" alt="log out icon">
                             Log Out
                         </button>
                     </form>
