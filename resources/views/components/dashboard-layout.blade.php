@@ -52,7 +52,7 @@
 
             <button id="toggleSidebar" class="p-0 d-block btn btn-link">
                 <svg width="20" height="20" aria-hidden="true">
-                    <use href={{ asset('images/dock-close.svg') }}></use>
+                    <use href="{{ asset('/images/dock-close.svg') }}"></use>
                 </svg>
             </button>
         </div>
