@@ -26,18 +26,20 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install PHP dependencies
+# After Composer install
 RUN composer install --no-dev --optimize-autoloader
 
-RUN php artisan config:clear && php artisan cache:clear && php artisan view:clear
+# Remove these lines (they cause build-time errors)
+# RUN php artisan config:clear && php artisan cache:clear && php artisan view:clear
 
-# Laravel setup
-RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
-
-# Expose port 8000 for Render
-EXPOSE 8000
-
+# Set permissions
 RUN chmod -R 775 storage bootstrap/cache
 
-# Start Laravel server
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
+# Expose port and run Laravel
+EXPOSE 8000
+
+CMD php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan view:clear && \
+    php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
 
