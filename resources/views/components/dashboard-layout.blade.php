@@ -97,8 +97,8 @@
         </div>
     </div>
 
-    <div id="app" class="main-content flex-grow-1">
-        <div class="container-fluid py-4">
+    <div class="main-content flex-grow-1">
+        <div id="app" class="container-fluid py-4">
             {{ $slot }}
         </div>
     </div>
@@ -113,6 +113,7 @@
     const sidebar = document.querySelector('#sidebar');
     const toggle = document.querySelector('#toggleSidebar');
     const burgerBtn = document.querySelector('#burger');
+    const mainContent = document.querySelector('.main-content');
     const menu = document.querySelector('#nav-mobile');
 
     burgerBtn.addEventListener('click', () => {
@@ -121,10 +122,13 @@
     })
 
     if (localStorage.getItem('sidebar-expanded') === 'true') {
+        sidebar.classList.remove('animation');
         sidebar.classList.add('expanded');
     }
 
     toggle.addEventListener('click', () => {
+        sidebar.classList.add('animation');
+        mainContent.classList.add('transition');
         sidebar.classList.toggle('expanded');
         localStorage.setItem('sidebar-expanded', sidebar.classList.contains('expanded'));
     });
