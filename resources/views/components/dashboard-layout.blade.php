@@ -60,7 +60,7 @@
             <li class="nav-item">
                 <x-nav-link href="/dashboard" :active="request()->is('dashboard')">
                     <svg width="20" height="20" aria-hidden="true">
-                        <use href="@if(request()->is('dashboard')) {{ asset('images/dashboard-filled.svg') }} @else {{ asset('images/dashboard.svg') }} @endif"></use>
+                        <use href="@if(request()->is('dashboard')) {{ asset('/images/dashboard-filled.svg') }} @else {{ asset('/images/dashboard.svg') }} @endif"></use>
                     </svg>
                     <span>Dashboard</span>
                 </x-nav-link>
@@ -68,7 +68,7 @@
             <li class="nav-item">
                 <x-nav-link href="/transactions" :active="request()->is('transactions')">
                     <svg width="20" height="20" aria-hidden="true">
-                        <use href={{ asset('images/transactions.svg') }}></use>
+                        <use href={{ asset('/images/transactions.svg') }}></use>
                     </svg>
                     <span>Transactions</span>
                 </x-nav-link>
@@ -76,7 +76,7 @@
             <li class="nav-item">
                 <x-nav-link href="/goals" :active="request()->is('goals')">
                     <svg width="20" height="20" aria-hidden="true">
-                        <use href="@if(request()->is('goals')) {{ asset('images/goals-filled.svg') }} @else {{ asset('images/goals.svg') }} @endif"></use>
+                        <use href="@if(request()->is('goals')) {{ asset('/images/goals-filled.svg') }} @else {{ asset('/images/goals.svg') }} @endif"></use>
                     </svg>
                     <span>Goals</span>
                 </x-nav-link>
@@ -86,7 +86,7 @@
         <div class="mt-auto">
             <a href="#" class="nav-link btn text-white py-2" data-bs-toggle="dropdown" aria-expanded="false">
                 <svg width="20" height="20" aria-hidden="true">
-                    <use href={{ asset('images/user.svg') }}></use>
+                    <use href={{ asset('/images/user.svg') }}></use>
                 </svg>
                 <small>{{ $user->first_name . ' ' . $user->last_name }}</small>
             </a>
@@ -97,7 +97,7 @@
                         @method('DELETE')
                         <button class="btn me-2 mb-2 w-100">
                             <svg class="me-1" width="20" height="20" aria-hidden="true">
-                                <use href={{ asset('images/logout.svg') }}></use>
+                                <use href={{ asset('/images/logout.svg') }}></use>
                             </svg>
                             Log Out
                         </button>
