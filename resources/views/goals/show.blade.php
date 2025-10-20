@@ -44,7 +44,7 @@
                                     'text-primary' => $goal->transactions_sum_amount < 0,
                                     'text-white-65' => $goal->transactions_sum_amount == 0,
                                     ])>
-                                    ${{ number_format(abs($goal->transactions_sum_amout), 2) }}
+                                    ${{ number_format(abs($goal->transactions_sum_amount), 2) }}
                                 </p>
                             </li>
                             <li class="list-group-item d-flex justify-content-between py-3 border-white border-opacity-25">
