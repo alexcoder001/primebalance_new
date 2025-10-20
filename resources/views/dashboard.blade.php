@@ -157,7 +157,7 @@
         <div class="modal fade" id="goalModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="goalForm" method="POST" action="{{ route('goals') }}">
+                    <form id="goalForm" method="POST" action="{{ route('goals.store') }}">
                         @csrf
 
                         <div class="modal-header">

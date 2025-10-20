@@ -51,7 +51,7 @@
                         <div @class(['d-none' => $transactions->isEmpty(), 'd-flex bg-dark-green rounded-1 px-2'])>
                             <ul class="list-group w-100">
                                 @foreach($transactions as $transaction)
-                                    <a href="" class="text-decoration-none">
+                                    <a href="{{ route('transactions.show', $id = $transaction->id) }}" class="text-decoration-none">
                                         <li @class(['list-group-item d-flex justify-content-between py-4 border-white border-opacity-25',
                                 'border-bottom' => !$loop->last])>
                                             <p class="text-white mb-0">{{ $transaction->description }}</p>

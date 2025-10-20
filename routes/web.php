@@ -21,11 +21,13 @@ Route::delete('/logout', [SessionController::class, 'destroy'])->middleware('aut
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/transactions', [TransactionController::class, 'index'])->middleware('auth')->name('transactions.index');
+Route::get('/transactions/{transaction}', [TransactionController::class, 'show'])->middleware('auth')->name('transactions.show');
 Route::post('/transactions', [TransactionController::class, 'store'])->middleware('auth');
 Route::post('/transactions/{transaction}', [TransactionController::class, 'destroy'])->middleware('auth')->name('transactions.destroy');
 
-Route::get('/goals', [GoalController::class, 'index'])->middleware('auth')->name('goals');
-Route::post('/goals', [GoalController::class, 'store'])->middleware('auth');
+Route::get('/goals', [GoalController::class, 'index'])->middleware('auth')->name('goals.index');
+Route::post('/goals', [GoalController::class, 'store'])->middleware('auth')->name('goals.store');
+Route::get('/goals/{goal}', [GoalController::class, 'show'])->middleware('auth')->name('goals.show');
 Route::post('/goals/{goal}', [GoalController::class, 'edit'])->middleware('auth')->name('goals.edit');
 Route::put('/goals/{goal}', [GoalController::class, 'invest'])->middleware('auth')->name('goals.invest');
 Route::delete('/goals/{goal}', [GoalController::class, 'destroy'])->middleware('auth')->name('goals.destroy');

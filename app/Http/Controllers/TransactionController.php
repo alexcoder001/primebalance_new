@@ -24,7 +24,7 @@ class TransactionController extends Controller
 
         $query = $this->user->transactions();
 
-        if($request->has('search')) {
+        if ($request->has('search')) {
             $query->whereRaw('LOWER(description) LIKE ?', [strtolower(request('search')) . '%']);
         }
 
@@ -36,7 +36,7 @@ class TransactionController extends Controller
 
         $transactions = $query->orderBy('created_at', 'desc')->get();
 
-        return view('transactions', compact('transactions', 'filter'));
+        return view('transactions.index', compact('transactions', 'filter'));
     }
 
     public function store(TransactionStoreRequest $request)
@@ -64,6 +64,11 @@ class TransactionController extends Controller
             'amount' => $data['amount'] * $multiplier,
             'description' => $data['description'],
         ]);
+    }
+
+    public function show(Transaction $transaction)
+    {
+        return view('transactions.show', compact('transaction'));
     }
 
     public function destroy(Transaction $transaction)

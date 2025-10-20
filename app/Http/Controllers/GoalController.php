@@ -13,7 +13,7 @@ class GoalController extends Controller
     {
         $goals = Auth::user()->goals()->withSum('transactions', 'amount')->paginate(9);
 
-        return view('goals', compact('goals'));
+        return view('goals.index', compact('goals'));
     }
 
     public function store(Request $request)
@@ -78,6 +78,11 @@ class GoalController extends Controller
         $goal->transactions()->save($transaction);
 
         return $response;
+    }
+
+    public function show(Goal $goal)
+    {
+        return view('goals.show', compact('goal'));
     }
 
     public function edit(Goal $goal)
